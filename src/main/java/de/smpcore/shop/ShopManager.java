@@ -29,6 +29,19 @@ public final class ShopManager {
         sellPrices.clear();
         YamlConfiguration y = YamlConfiguration.loadConfiguration(new File(plugin.getDataFolder(), "shop.yml"));
         List<String> black = plugin.getConfig().getStringList("shop-blacklist");
+        // Items, die man nur VERKAUFEN kann (tauchen nicht im Shop-Menü auf): shop.yml -> sell-only
+        ConfigurationSection so = y.getConfigurationSection("sell-only");
+        if (so != null) {
+            for (String key : so.getKeys(false)) {
+                Material mt = Material.matchMaterial(key);
+                double price = so.getDouble(key, 0);
+                if (mt == null || !mt.isItem()) {
+                    plugin.getLogger().warning("Shop (sell-only): unbekanntes Item " + key);
+                    continue;
+                }
+                if (price > 0 && !black.contains(mt.name())) sellPrices.merge(mt, price, Math::max);
+            }
+        }
         ConfigurationSection cs = y.getConfigurationSection("categories");
         if (cs == null) return;
         for (String id : cs.getKeys(false)) {
