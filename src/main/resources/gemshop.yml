@@ -1,0 +1,18 @@
+# GEM-SHOP (Store-Währung): /gemshop - Gems gibt es im Store.
+# Nach einem Kauf im Store (z.B. Tebex) lässt du den Server diesen Befehl ausführen:   gems give {username} 500
+# type: KEY (value = Crate-ID) | MONEY (value = Betrag) | ITEM (value = Material) | COMMAND (value = Befehl, %player%)
+items:
+  - {icon: NAME_TAG, name: "<green>PREMIUM-Rang", cost: 300, type: COMMAND, value: "rank set %player% premium", amount: 1, lore: ["<gray>Prefix, Homes, Kit, AFK-Bonus"]}
+  - {icon: NAME_TAG, name: "<gold>ELITE-Rang", cost: 600, type: COMMAND, value: "rank set %player% elite", amount: 1, lore: ["<gray>Alles von PREMIUM und mehr"]}
+  - {icon: NAME_TAG, name: "<#ff5555>MVP-Rang", cost: 1000, type: COMMAND, value: "rank set %player% mvp", amount: 1, lore: ["<gray>Alles von ELITE und mehr"]}
+  - {icon: NAME_TAG, name: "<#c040ff>ULTRA-Rang", cost: 1600, type: COMMAND, value: "rank set %player% ultra", amount: 1, lore: ["<gray>Alles von MVP und mehr"]}
+  - {icon: NAME_TAG, name: "<#55ccff>VIP-Rang", cost: 2500, type: COMMAND, value: "rank set %player% vip", amount: 1, lore: ["<gray>Der höchste Spielerrang"]}
+  - {icon: TRIPWIRE_HOOK, name: "<gold>Legendary Key", cost: 150, type: KEY, value: legendary, amount: 1, lore: ["<gray>Schlüssel für die Legendary Crate"]}
+  - {icon: TRIPWIRE_HOOK, name: "<light_purple>Special Key", cost: 200, type: KEY, value: special, amount: 1, lore: ["<gray>Spawner & Tools"]}
+  - {icon: TRIPWIRE_HOOK, name: "<yellow>Wahl-Key", cost: 250, type: KEY, value: choose, amount: 1, lore: ["<gray>Such dir deinen Reward aus!"]}
+  - {icon: SPAWNER, name: "<green>Zombie Spawner", cost: 120, type: COMMAND, value: "spawner give %player% ZOMBIE 1", amount: 1, lore: ["<gray>Smart-Spawner: lagert Loot & XP"]}
+  - {icon: SPAWNER, name: "<white>Skeleton Spawner", cost: 120, type: COMMAND, value: "spawner give %player% SKELETON 1", amount: 1, lore: ["<gray>Smart-Spawner: lagert Loot & XP"]}
+  - {icon: SPAWNER, name: "<gold>Blaze Spawner", cost: 300, type: COMMAND, value: "spawner give %player% BLAZE 1", amount: 1, lore: ["<gray>Smart-Spawner: lagert Loot & XP"]}
+  - {icon: NETHERITE_PICKAXE, name: "<red>Hammer (3x3)", cost: 250, type: COMMAND, value: "tool give %player% hammer 1", amount: 1, lore: ["<gray>Baut 3x3 Blöcke ab"]}
+  - {icon: NETHERITE_SHOVEL, name: "<yellow>Excavator (3x3)", cost: 250, type: COMMAND, value: "tool give %player% excavator 1", amount: 1, lore: ["<gray>Gräbt 3x3 Blöcke"]}
+  - {icon: GOLD_BLOCK, name: "<gold>$1.000.000", cost: 100, type: MONEY, value: "1000000", amount: 1, lore: ["<gray>Tausche Gems gegen Geld"]}

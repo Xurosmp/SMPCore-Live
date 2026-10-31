@@ -1,0 +1,21 @@
+# CRYSTAL STORE (AFK-Währung): /crystalshop - Stars verdient man in der AFK-Zone (/afk).
+# Reihe 2 = Crystal-Ausrüstung, Reihe 3 = 7 Smart Spawner. Festes Layout (4 Reihen): slot = Position im Menü. Slot 31 (rote Scheibe) ist "Schließen".
+# Ohne "slot" bei den Einträgen wird stattdessen eine blätterbare Liste angezeigt.
+# type: KEY (value = Crate-ID) | MONEY (value = Betrag) | ITEM (value = Material) | COMMAND (value = Befehl, %player%)
+items:
+  # --- Reihe 2: Crystal-Ausrüstung (Definition in tools.yml) ---
+  - {slot: 10, icon: NETHERITE_HELMET, name: "<light_purple>Crystal Helm", cost: 400, type: COMMAND, value: "tool give %player% crystal_helmet 1", amount: 1, lore: ["<gray>Protection IV, Unbreaking III, Mending"]}
+  - {slot: 11, icon: NETHERITE_CHESTPLATE, name: "<light_purple>Crystal Brustplatte", cost: 600, type: COMMAND, value: "tool give %player% crystal_chestplate 1", amount: 1, lore: ["<gray>Protection IV, Unbreaking III, Mending"]}
+  - {slot: 12, icon: NETHERITE_LEGGINGS, name: "<light_purple>Crystal Hose", cost: 500, type: COMMAND, value: "tool give %player% crystal_leggings 1", amount: 1, lore: ["<gray>Protection IV, Unbreaking III, Mending"]}
+  - {slot: 13, icon: NETHERITE_BOOTS, name: "<light_purple>Crystal Stiefel", cost: 350, type: COMMAND, value: "tool give %player% crystal_boots 1", amount: 1, lore: ["<gray>Protection IV, Feather Falling IV, Mending"]}
+  - {slot: 14, icon: NETHERITE_SWORD, name: "<light_purple>Crystal Schwert", cost: 500, type: COMMAND, value: "tool give %player% crystal_sword 1", amount: 1, lore: ["<gray>Sharpness V, Looting III, Mending"]}
+  - {slot: 15, icon: NETHERITE_AXE, name: "<light_purple>Crystal Axt", cost: 450, type: COMMAND, value: "tool give %player% crystal_axe 1", amount: 1, lore: ["<gray>Sharpness V, Efficiency V, Mending"]}
+  - {slot: 16, icon: NETHERITE_PICKAXE, name: "<light_purple>Crystal Spitzhacke", cost: 500, type: COMMAND, value: "tool give %player% crystal_pickaxe 1", amount: 1, lore: ["<gray>Efficiency V, Fortune III, Mending"]}
+  # --- Reihe 3: die 7 Smart Spawner (Loot-Tabellen in spawners.yml) ---
+  - {slot: 19, icon: SPAWNER, name: "<green>Zombie Spawner", cost: 200, type: COMMAND, value: "spawner give %player% ZOMBIE 1", amount: 1, lore: ["<gray>Smart-Spawner: lagert Loot & XP"]}
+  - {slot: 20, icon: SPAWNER, name: "<white>Skeleton Spawner", cost: 250, type: COMMAND, value: "spawner give %player% SKELETON 1", amount: 1, lore: ["<gray>Smart-Spawner: lagert Loot & XP"]}
+  - {slot: 21, icon: SPAWNER, name: "<dark_gray>Spider Spawner", cost: 250, type: COMMAND, value: "spawner give %player% SPIDER 1", amount: 1, lore: ["<gray>Smart-Spawner: lagert Loot & XP"]}
+  - {slot: 22, icon: SPAWNER, name: "<dark_green>Creeper Spawner", cost: 300, type: COMMAND, value: "spawner give %player% CREEPER 1", amount: 1, lore: ["<gray>Smart-Spawner: lagert Loot & XP"]}
+  - {slot: 23, icon: SPAWNER, name: "<gold>Blaze Spawner", cost: 500, type: COMMAND, value: "spawner give %player% BLAZE 1", amount: 1, lore: ["<gray>Smart-Spawner: lagert Loot & XP"]}
+  - {slot: 24, icon: SPAWNER, name: "<dark_purple>Wither-Skeleton Spawner", cost: 800, type: COMMAND, value: "spawner give %player% WITHER_SKELETON 1", amount: 1, lore: ["<gray>Smart-Spawner: lagert Loot & XP"]}
+  - {slot: 25, icon: SPAWNER, name: "<yellow><bold>Iron-Golem Spawner", cost: 1000, type: COMMAND, value: "spawner give %player% IRON_GOLEM 1", amount: 1, lore: ["<gray>Smart-Spawner: lagert Loot & XP"]}

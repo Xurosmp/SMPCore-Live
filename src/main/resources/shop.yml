@@ -1,0 +1,75 @@
+# Shop im HugoSMP-Look. Hauptmenü: 3 Reihen, Kategorien mittig (Slots 11-15), kein Füll-Glas.
+# Unterseiten: Titel in Cyan, bis zu 9 Items in der mittleren Reihe (mehr = automatisch weitere Seiten),
+# rote Glasscheibe unten mittig = Zurück.
+# buy = Kaufpreis pro Stück (0 = nicht kaufbar), sell = Verkaufspreis (0 = nicht verkaufbar)
+# action: crystalstore = diese Kategorie öffnet den Stars-Shop (Nether Star)
+# locked: true = nur Anzeige (gesperrt, z.B. Barrier), slot = Position im Hauptmenü (0-26)
+categories:
+  locked:
+    name: "<red>Gesperrt"
+    icon: BARRIER
+    slot: 11
+    locked: true
+    items: []
+  nether:
+    name: "<red>Nether"
+    icon: NETHERRACK
+    slot: 12
+    items:
+      - {material: BLAZE_ROD, buy: 100, sell: 40}
+      - {material: NETHER_WART, buy: 15, sell: 5}
+      - {material: GLOWSTONE_DUST, buy: 12, sell: 4}
+      - {material: MAGMA_CREAM, buy: 60, sell: 20}
+      - {material: GHAST_TEAR, buy: 250, sell: 100}
+      - {material: QUARTZ, buy: 20, sell: 8}
+      - {material: SOUL_SAND, buy: 8, sell: 3}
+      - {material: MAGMA_BLOCK, buy: 30, sell: 10}
+      - {material: CRYING_OBSIDIAN, buy: 150, sell: 50}
+  ausruestung:
+    name: "<gold>Ausrüstung"
+    icon: TOTEM_OF_UNDYING
+    slot: 13
+    items:
+      - {material: OBSIDIAN, buy: 80, sell: 30}
+      - {material: GLOWSTONE, buy: 30, sell: 10}
+      - {material: TOTEM_OF_UNDYING, buy: 20000, sell: 0}
+      - {material: ENDER_PEARL, buy: 150, sell: 50}
+      - {material: GOLDEN_APPLE, buy: 600, sell: 200}
+      - {material: EXPERIENCE_BOTTLE, buy: 120, sell: 0}
+      - {material: ENDER_CHEST, buy: 500, sell: 0}
+      - {material: SHIELD, buy: 250, sell: 0}
+      - {material: ARROW, buy: 5, sell: 1}
+      - {material: COAL, buy: 20, sell: 8}
+      - {material: IRON_INGOT, buy: 60, sell: 25}
+      - {material: GOLD_INGOT, buy: 120, sell: 50}
+      - {material: REDSTONE, buy: 12, sell: 5}
+      - {material: LAPIS_LAZULI, buy: 15, sell: 6}
+      - {material: DIAMOND, buy: 400, sell: 180}
+      - {material: EMERALD, buy: 300, sell: 130}
+      - {material: ANCIENT_DEBRIS, buy: 3000, sell: 1200}
+      - {material: NETHERITE_SCRAP, buy: 2500, sell: 1000}
+      - {material: SHULKER_SHELL, buy: 1500, sell: 500}
+      - {material: BONE, buy: 10, sell: 4}
+      - {material: GUNPOWDER, buy: 40, sell: 15}
+      - {material: STRING, buy: 10, sell: 4}
+      - {material: SLIME_BALL, buy: 40, sell: 15}
+  food:
+    name: "<yellow>Essen"
+    icon: BREAD
+    slot: 14
+    items:
+      - {material: POTATO, buy: 8, sell: 3}
+      - {material: SWEET_BERRIES, buy: 6, sell: 2}
+      - {material: MELON_SLICE, buy: 5, sell: 2}
+      - {material: CARROT, buy: 8, sell: 3}
+      - {material: BREAD, buy: 15, sell: 5}
+      - {material: APPLE, buy: 12, sell: 4}
+      - {material: COOKED_CHICKEN, buy: 20, sell: 8}
+      - {material: COOKED_BEEF, buy: 25, sell: 10}
+      - {material: BAKED_POTATO, buy: 12, sell: 5}
+  special:
+    name: "<yellow>Stars-Shop"
+    icon: NETHER_STAR
+    slot: 15
+    action: crystalstore    # öffnet den Stars-Shop (AFK-Währung) statt einer Item-Liste
+    items: []

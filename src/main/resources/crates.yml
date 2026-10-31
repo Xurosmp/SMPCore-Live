@@ -1,0 +1,93 @@
+# Crates. chance = Gewichtung (relativ zueinander). mode: RANDOM (Zufall) oder CHOOSE (Spieler wählt selbst).
+# Reward-Typen: ITEM (material, amount | item = base64 aus dem Editor) | MONEY (amount) | CRYSTALS (amount) | COMMAND (command, icon, name)
+# Bearbeiten geht auch im Spiel: /ap -> Crate-Editor (oder /crate edit <id>).
+# Platzieren: Block anschauen -> /crate set <id>.  Linksklick = Vorschau, Rechtsklick = öffnen.
+# Hinweis: Speichert der Editor, wird diese Datei neu geschrieben (Kommentare gehen verloren).
+crates:
+  common:
+    name: "<green><bold>Common Crate"
+    key-name: "<green>Common Key"
+    icon: CHEST
+    mode: RANDOM
+    rewards:
+      - {type: MONEY, amount: 2500, chance: 30}
+      - {type: MONEY, amount: 10000, chance: 12}
+      - {type: CRYSTALS, amount: 2, chance: 20}
+      - {type: ITEM, material: IRON_INGOT, amount: 32, chance: 15}
+      - {type: ITEM, material: COOKED_BEEF, amount: 32, chance: 15}
+      - {type: ITEM, material: DIAMOND, amount: 4, chance: 7}
+      - {type: CRYSTALS, amount: 10, chance: 1}
+  rare:
+    name: "<aqua><bold>Rare Crate"
+    key-name: "<aqua>Rare Key"
+    icon: ENDER_CHEST
+    mode: RANDOM
+    rewards:
+      - {type: MONEY, amount: 25000, chance: 28}
+      - {type: MONEY, amount: 100000, chance: 8}
+      - {type: CRYSTALS, amount: 8, chance: 20}
+      - {type: ITEM, material: DIAMOND, amount: 16, chance: 18}
+      - {type: ITEM, material: GOLDEN_APPLE, amount: 8, chance: 15}
+      - {type: ITEM, material: NETHERITE_SCRAP, amount: 4, chance: 8}
+      - {type: ITEM, material: TOTEM_OF_UNDYING, amount: 1, chance: 3}
+  legendary:
+    name: "<gold><bold>Legendary Crate"
+    key-name: "<gold>Legendary Key"
+    icon: BEACON
+    mode: RANDOM
+    rewards:
+      - {type: MONEY, amount: 250000, chance: 30}
+      - {type: MONEY, amount: 1000000, chance: 6}
+      - {type: CRYSTALS, amount: 40, chance: 20}
+      - {type: ITEM, material: NETHERITE_INGOT, amount: 4, chance: 15}
+      - {type: ITEM, material: ENCHANTED_GOLDEN_APPLE, amount: 4, chance: 15}
+      - {type: ITEM, material: TOTEM_OF_UNDYING, amount: 3, chance: 10}
+      - {type: COMMAND, command: "give %player% nether_star 1", icon: NETHER_STAR, name: "<light_purple>Nether Star", chance: 0.5}
+  epic:
+    name: "<dark_purple><bold>Epic Crate"
+    key-name: "<dark_purple>Epic Key"
+    icon: PURPLE_SHULKER_BOX
+    mode: RANDOM
+    rewards:
+      - {type: MONEY, amount: 100000, chance: 30}
+      - {type: MONEY, amount: 400000, chance: 8}
+      - {type: CRYSTALS, amount: 20, chance: 20}
+      - {type: ITEM, material: DIAMOND_BLOCK, amount: 4, chance: 15}
+      - {type: ITEM, material: GOLDEN_APPLE, amount: 16, chance: 15}
+      - {type: ITEM, material: NETHERITE_INGOT, amount: 2, chance: 8}
+      - {type: ITEM, material: TOTEM_OF_UNDYING, amount: 2, chance: 4}
+  mythic:
+    name: "<gold><bold>Mythic Crate"
+    key-name: "<gold><bold>Mythic Key"
+    icon: GOLD_BLOCK
+    mode: RANDOM
+    rewards:
+      - {type: MONEY, amount: 1000000, chance: 30}
+      - {type: MONEY, amount: 5000000, chance: 5}
+      - {type: CRYSTALS, amount: 100, chance: 20}
+      - {type: ITEM, material: NETHERITE_BLOCK, amount: 2, chance: 15}
+      - {type: ITEM, material: ENCHANTED_GOLDEN_APPLE, amount: 16, chance: 15}
+      - {type: COMMAND, command: "tool give %player% megahammer 1", icon: NETHERITE_PICKAXE, name: "<dark_red>Mega-Hammer (5x5)", chance: 5}
+      - {type: COMMAND, command: "spawner give %player% IRON_GOLEM 1", icon: SPAWNER, name: "<white>Iron Golem Spawner", chance: 3}
+  special:
+    name: "<light_purple><bold>Special Crate"
+    key-name: "<light_purple>Special Key"
+    icon: END_PORTAL_FRAME
+    mode: RANDOM
+    rewards:
+      - {type: COMMAND, command: "spawner give %player% ZOMBIE 1", icon: SPAWNER, name: "<green>Zombie Spawner", chance: 25}
+      - {type: COMMAND, command: "spawner give %player% SKELETON 1", icon: SPAWNER, name: "<white>Skeleton Spawner", chance: 25}
+      - {type: COMMAND, command: "spawner give %player% BLAZE 1", icon: SPAWNER, name: "<gold>Blaze Spawner", chance: 8}
+      - {type: COMMAND, command: "tool give %player% hammer 1", icon: NETHERITE_PICKAXE, name: "<red>Hammer (3x3)", chance: 10}
+      - {type: COMMAND, command: "tool give %player% excavator 1", icon: NETHERITE_SHOVEL, name: "<yellow>Excavator (3x3)", chance: 10}
+      - {type: CRYSTALS, amount: 25, chance: 20}
+  choose:
+    name: "<yellow><bold>Wahl-Crate"
+    key-name: "<yellow>Wahl-Key"
+    icon: TRAPPED_CHEST
+    mode: CHOOSE
+    rewards:
+      - {type: MONEY, amount: 50000, chance: 1}
+      - {type: CRYSTALS, amount: 15, chance: 1}
+      - {type: ITEM, material: DIAMOND_BLOCK, amount: 4, chance: 1}
+      - {type: ITEM, material: TOTEM_OF_UNDYING, amount: 2, chance: 1}

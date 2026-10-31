@@ -1,0 +1,66 @@
+name: Build SMPCore + SMPCoreLive
+
+on:
+  push:
+    branches: [main, master]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      # 1) Hauptplugin (muss zuerst gebaut werden, SMPCoreLive hängt davon ab)
+      - name: Build SMPCore
+        run: mvn -B -ntp package
+
+      # 2) Addon-Plugin im Ordner live/
+      - name: Build SMPCoreLive
+        run: mvn -B -ntp -f live/pom.xml package
+
+      - name: Upload SMPCore
+        uses: actions/upload-artifact@v4
+        with:
+          name: SMPCore
+          path: target/SMPCore.jar
+
+      - name: Upload SMPCoreLive
+        uses: actions/upload-artifact@v4
+        with:
+          name: SMPCoreLive
+          path: live/target/SMPCoreLive.jar
+
+      # Bei Tags wie v1.0.0 -> normales Release
+      - name: Release (Tag)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            target/SMPCore.jar
+            live/target/SMPCoreLive.jar
+          generate_release_notes: true
+
+      # Bei jedem Push auf main -> Release "latest" wird neu erstellt
+      - name: Rolling release "latest"
+        if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete latest --cleanup-tag --yes || true
+          gh release create latest target/SMPCore.jar live/target/SMPCoreLive.jar \
+            --title "Latest Build" \
+            --notes "Automatischer Build von Commit ${{ github.sha }}" \
+            --prerelease \
+            --target ${{ github.sha }}

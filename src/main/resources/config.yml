@@ -1,0 +1,236 @@
+# ===== SMPCore =====
+server-name: "XUROSMP"          # Platzhalter %server%
+server-ip: "xurosmp.daronlo.com" # Platzhalter %ip% (klein) und %IP% (GROSS) in Scoreboard und TAB
+number-comma: true              # true = 48,64M (deutsch) | false = 48.64M
+
+# Chat-Prefix pro Befehl: "AH ▸", "HOME ▸", "ORDER ▸" ... (maximal 5 Zeichen, MiniMessage-Farben erlaubt)
+# Bedrock-Hinweis: Falls "▸" bei Bedrock-Spielern nicht angezeigt wird, hier z.B. auf "»" ändern.
+prefix-format: "<green><bold>%tag%</bold> <dark_gray>▸ <gray>"
+prefixes:
+  default: "SMP"
+  balance: "MONEY"
+  pay: "PAY"
+  eco: "ECO"
+  crystals: "STARS"
+  crystalshop: "STARS"
+  gems: "GEMS"
+  gemshop: "GEMS"
+  top: "TOP"
+  shop: "SHOP"
+  sell: "SELL"
+  ah: "AH"
+  bounty: "BNTY"
+  crate: "KEYS"
+  keyall: "KEYS"
+  adminpanel: "ADMIN"
+  smpcore: "SMP"
+  rank: "RANK"
+  spawner: "SPAWN"
+  tool: "TOOL"
+  spawn: "SPAWN"
+  setspawn: "SPAWN"
+  sethome: "HOME"
+  home: "HOME"
+  delhome: "HOME"
+  homes: "HOME"
+  tpa: "TPA"
+  tpaccept: "TPA"
+  tpdeny: "TPA"
+  rtp: "RTP"
+  daily: "DAILY"
+  stats: "STATS"
+  scoreboard: "SB"
+  afk: "AFK"
+  clan: "CLAN"
+  order: "ORDER"
+  warp: "WARP"
+  setwarp: "WARP"
+  delwarp: "WARP"
+  kit: "KIT"
+  back: "BACK"
+  msg: "MSG"
+  r: "MSG"
+  heal: "HEAL"
+  feed: "FEED"
+  fly: "FLY"
+  craft: "CRAFT"
+  ec: "EC"
+  trash: "TRASH"
+  vanish: "HIDE"
+  info: "INFO"
+  dim: "DIM"
+  sign: "SIGN"
+
+# Floodgate/Geyser: Prefix für Bedrock-Namen (Standard ".")
+bedrock-prefix: "."
+
+# Diese Items werden NIE in Shops (/shop, Stars-Shop, Gem-Shop) und Crates angeboten.
+# Elytra gibt es so nur im End, im Auktionshaus (/ah) und über Orders (/order).
+shop-blacklist: [ELYTRA]
+
+# Dimensionen manuell öffnen/schließen (auch im Admin Panel oder per /dimension <nether|end> <on|off>)
+dimensions:
+  nether: true
+  end: true
+
+# /sign: Item in der Hand signieren. Standard 1x pro Tag, Ränge können mehr (sign-limit in ranks.yml)
+sign:
+  daily-limit: 1
+
+# Wartungsmodus: nur Spieler mit smpcore.admin dürfen joinen (auch im Admin Panel schaltbar)
+maintenance: false
+
+chat:
+  rank-format: true   # Rang-Prefix im Chat
+
+# Features an/aus (geht auch im Admin Panel)
+features:
+  shop: true
+  auction: true
+  bounty: true
+  crates: true
+  scoreboard: true
+  orders: true
+
+economy:
+  starting-money: 1000
+  starting-crystals: 0     # Stars = AFK-Währung
+  starting-gems: 0         # Gems = Store-Währung
+
+# Stars = AFK-Währung (verdient in der AFK-Zone, ausgegeben im Stars-Shop /crystalshop).
+# Optional zusätzlich pro Kill / Spielzeit (Standard: aus):
+crystals:
+  per-kill: 0
+  anti-farm-minutes: 10
+  playtime-minutes: 0
+  playtime-amount: 1
+
+# AFK-Zone: Admin setzt sie mit /afk pos1, /afk pos2, /afk setspawn. Spieler kommen mit /afk hin.
+afk:
+  enabled: true
+  interval-seconds: 60     # alle X Sekunden in der Zone
+  crystals: 1              # Stars pro Intervall (Rang-Bonus siehe ranks.yml: afk-bonus)
+
+# Clans
+clans:
+  create-cost: 50000
+  max-members: 10
+
+# Automatischer Keyall: alle X Minuten bekommen alle Online-Spieler Keys
+keyall:
+  enabled: true
+  interval-minutes: 60
+  crate: common
+  amount: 1
+
+auction:
+  max-listings: 10          # Standard, Ränge können das in ranks.yml überschreiben
+  duration-hours: 48
+  tax-percent: 5
+  min-price: 1
+  max-price: 1000000000000
+
+bounty:
+  min-amount: 1000
+
+crates:
+  broadcast-chance-below: 5.0   # Gewinne mit weniger als X% Chance werden gebroadcastet
+
+teleport:
+  delay-seconds: 3
+
+homes:
+  max: 3                    # Standard, Ränge können das in ranks.yml überschreiben
+
+rtp:
+  cooldown-seconds: 60
+  worlds:
+    overworld: {enabled: true, world: world, min-radius: 500, max-radius: 5000}
+    nether: {enabled: false, world: world_nether, min-radius: 200, max-radius: 2000}   # manuell freischalten: enabled: true (oder Admin Panel)
+    end: {enabled: false, world: world_the_end, min-radius: 1000, max-radius: 3000}
+
+
+daily:
+  money: 500
+  streak-bonus: 100      # pro Streak-Tag zusätzlich
+  max-streak: 7
+  crystals: 0          # Stars sind AFK-Währung, daher standardmäßig 0
+
+# Orders (Kaufaufträge): /order. Geld wird beim Erstellen reserviert, Lieferanten werden sofort bezahlt.
+orders:
+  input: SIGN            # SIGN = Eingabe per Schild (auch Bedrock), CHAT = per Chat
+  max-per-player: 5
+  duration-hours: 72
+  min-price: 0.01
+  max-amount: 2304
+  blacklist: [BEDROCK, BARRIER, COMMAND_BLOCK, CHAIN_COMMAND_BLOCK, REPEATING_COMMAND_BLOCK, STRUCTURE_BLOCK, STRUCTURE_VOID, JIGSAW, DEBUG_STICK, SPAWNER, LIGHT]
+
+# Eigene TAB-Liste: Header/Footer, Name mit [CLAN] + Rang-Prefix, Sortierung nach Rang.
+# nametag-prefix: Rang-Prefix auch über dem Kopf. Platzhalter wie beim Scoreboard.
+tab:
+  enabled: true
+  nametag-prefix: true
+  name-color: "<white>"   # Farbe des Spielernamens in der TAB-Liste (der Rang-Prefix behält seine Farbe)
+  header:
+    - ""
+    - "%logo%"
+    - ""
+    - "<green>%online% Spieler <gray>(%ping%ms)"
+    - ""
+  footer:
+    - ""
+    - "<white><bold>%IP%"
+    - ""
+
+# Announcer: automatische Chat-Nachrichten
+announcer:
+  enabled: true
+  interval-seconds: 300
+  messages:
+    - "<yellow>Tipp: <gray>Mit <white>/afk <gray>verdienst du Stars in der AFK-Zone!"
+    - "<yellow>Tipp: <gray>Im <white>/shop <gray>kannst du kaufen und verkaufen."
+    - "<yellow>Tipp: <gray>Mit <white>/order <gray>bestellst du Items zu deinem Preis."
+    - "<yellow>Tipp: <gray>Gründe einen Clan mit <white>/clan<gray>!"
+    - "<yellow>Tipp: <gray>Hol dir kostenlose Kits mit <white>/kit<gray>."
+
+# Scoreboard exakt im HugoSMP-Look (Reihenfolge wie im Original).
+# %i_money% usw. sind Icons: Mit geladenem Resource-Pack (resourcepack unten) als Bild, sonst als Unicode-Symbol (z.B. Bedrock).
+# Hinweis: "Stars" zeigt die Stars (AFK-Währung). Platzhalter siehe unten.
+# Platzhalter: %player% %money% %gems% %crystals% %kills% %deaths% %playtime% %online% %max% %bounty% %ping% %rank% %keyall% %clan% %server% %ip% %IP%
+scoreboard:
+  title: "<gradient:#ff5555:#ffaa00><bold>XUROSMP</bold></gradient>"
+  lines:
+    - "%i_money% <white>Geld <green>%money%"
+    - "%i_gems% <white>Gems <light_purple>%gems%"
+    - "%i_stars% <white>Stars <yellow>%crystals%"
+    - "%i_kills% <white>Kills <gold>%kills%"
+    - "%i_deaths% <white>Tode <red>%deaths%"
+    - "%i_clan% <white>Clan <yellow>%clan%"
+    - "%i_ping% <white>Ping <green>%ping%ms"
+    - "%i_keyall% <white>Keyall <aqua>%keyall%"
+    - "%i_time% <white>Spielzeit <green>%playtime%"
+    - " "
+    - "<red><bold>%IP%"
+    - "<green>%online%/%max%"
+
+# ===== Resource-Pack (nur Java; Bedrock-Spieler bekommen automatisch die Unicode-Fallbacks) =====
+# 1. Pack-ZIP (resourcepack/XuroSMP-Pack.zip) irgendwo mit DIREKTEM Download-Link hosten (z.B. GitHub: Raw-Link der Datei im öffentlichen Repo)
+# 2. url und sha1 (steht in resourcepack/SHA1.txt) hier eintragen, enabled auf true
+# Das Pack enthält: lila "Crystal"-Ausrüstung, rote/orange Hammer/Excavator, Scoreboard-Icons und TAB-Logo.
+resourcepack:
+  enabled: false
+  url: ""
+  sha1: "453e7464bf0ba4737bc6da50a008306ba216038d"
+  force: false
+  prompt: "<yellow>XuroSMP Resource-Pack: schönere Tools, Scoreboard und TAB-Liste!"
+  logo: {glyph: "\uE100", fallback: "<aqua><bold>⚔ %server% ⚔"}
+  icons:
+    money: {glyph: "\uE000", fallback: "<green>$"}
+    gems: {glyph: "\uE001", fallback: "<light_purple>♦"}
+    stars: {glyph: "\uE002", fallback: "<yellow>★"}
+    kills: {glyph: "\uE003", fallback: "<gray>⚔"}
+    deaths: {glyph: "\uE004", fallback: "<dark_red>☠"}
+    clan: {glyph: "\uE005", fallback: "<gold>⚑"}
+    ping: {glyph: "\uE006", fallback: "<aqua>⚡"}
+    keyall: {glyph: "\uE007", fallback: "<aqua>✦"}
+    time: {glyph: "\uE008", fallback: "<green>⌚"}

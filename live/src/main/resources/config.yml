@@ -1,0 +1,104 @@
+# ===========================================================
+#  SMPCoreLive - Addon für SMPCore
+#  Farben/Formatierung: MiniMessage (z.B. <red>, <#ff3fa4>, <bold>)
+# ===========================================================
+
+features:
+  live: true
+  combat: true
+  holograms: true
+
+# Chat-Prefix der einzelnen Module (wie bei SMPCore: kurzes Label)
+prefixes:
+  live: "<red><bold>LIVE</bold> <dark_gray>▸ <gray>"
+  combat: "<red><bold>FIGHT</bold> <dark_gray>▸ <gray>"
+  holo: "<gold><bold>HOLO</bold> <dark_gray>▸ <gray>"
+  admin: "<aqua><bold>SCL</bold> <dark_gray>▸ <gray>"
+
+# ---------------------------------------------------------
+#  /live
+# ---------------------------------------------------------
+live:
+  # Diese SMPCore-Ränge (ranks.yml, ID klein geschrieben) dürfen /live nutzen.
+  # Zusätzlich geht es mit der Permission smpcorelive.live (OPs haben sie automatisch).
+  allowed-ranks: [media, mod, srmod, admin, sradmin, owner]
+  # Nur Links zu diesen Seiten sind erlaubt (Subdomains inklusive). Leere Liste = jeder http(s)-Link.
+  allowed-domains: [twitch.tv, youtube.com, youtu.be, kick.com, tiktok.com]
+  # Der rote Punkt hinter dem Namen (Chat + TAB-Liste)
+  dot: "<red>●"
+  # Cooldown in Sekunden zwischen zwei /live-Starts (verhindert Spam)
+  cooldown-seconds: 30
+  # Nach wie vielen Minuten der Live-Status automatisch endet (0 = nie)
+  max-minutes: 360
+  # Live-Status beim Verlassen des Servers beenden
+  end-on-quit: true
+  # Ankündigung im Chat beim Start (%player% = Name). Der Link wird klickbar angehängt.
+  broadcast-start: "<red>●</red> <white>%player% <gray>ist jetzt <red><bold>LIVE</bold><gray>! <dark_gray>▸ "
+  broadcast-text-link: "<aqua><underlined>[Zuschauen]"
+  broadcast-stop: "<gray>%player% <gray>ist nicht mehr live."
+
+# ---------------------------------------------------------
+#  Combat-Log
+# ---------------------------------------------------------
+combat:
+  # Sekunden im Kampf-Modus nach dem letzten PvP-Treffer
+  duration-seconds: 15
+  # Welten, in denen der Kampf-Modus nicht gilt
+  disabled-worlds: []
+  # Anzeige über der Hotbar
+  actionbar: "<red><bold>⚔ KAMPF <dark_gray>» <white>%time%s <gray>- nicht ausloggen!"
+  message-start: "<red>Du bist jetzt im Kampf! <gray>Logge dich für <white>%time% Sekunden <gray>nicht aus."
+  message-end: "<green>Du bist nicht mehr im Kampf."
+  # Wenn du deinen Gegner tötest, endet dein Kampf-Modus sofort (wenn er dein letzter Gegner war)
+  end-on-kill: true
+  # Ausloggen im Kampf: Spieler wird getötet (Items droppen), Gegner bekommt den Kill (inkl. SMPCore-Bounty/Stars)
+  punish-disconnect: true
+  # Auch bei Verbindungsabbruch (Timeout) bestrafen. Admin-Kicks und Server-Stop werden NIE bestraft.
+  punish-timeout: true
+  broadcast-logout: "<red>☠ <white>%player% <gray>hat sich im Kampf ausgeloggt und wurde getötet!"
+  join-notice: "<red>Du hast dich im Kampf ausgeloggt - dein Charakter wurde getötet."
+  # Fliegen und Elytra sperren, solange man im Kampf ist
+  disable-flight: true
+  disable-elytra: true
+  # Teleports (Befehle/Plugins) im Kampf sperren. Enderperlen & Chorusfrüchte bleiben erlaubt.
+  block-teleport: true
+  block-portals: true
+  message-blocked: "<red>Das geht im Kampf nicht!"
+  commands:
+    # whitelist = nur die Befehle in "list" sind im Kampf erlaubt, blacklist = nur die Befehle in "list" sind gesperrt
+    mode: whitelist
+    list: [msg, r, tell, w, m, pm, reply, live, balance, bal, money, pay, stats, bounty, clan]
+
+# ---------------------------------------------------------
+#  Hologramm-Leaderboards (/hololb)
+# ---------------------------------------------------------
+holograms:
+  # display    = ein TextDisplay (schön, braucht Java-Client; Bedrock je nach Geyser-Version)
+  # armorstand = pro Zeile ein unsichtbarer Armorstand (funktioniert überall, auch Bedrock)
+  mode: display
+  refresh-seconds: 60
+  default-limit: 10
+  # Höhe über deinen Füßen beim Erstellen/Verschieben
+  spawn-height: 2.5
+  line-spacing: 0.27
+  # Sichtweite in Blöcken (nur TextDisplay)
+  view-range: 48
+  # TextDisplay-Hintergrund (ARGB, 0 = transparent)
+  background-alpha: 110
+  min-kills-for-kd: 10
+  # Diese SMPCore-Ränge (IDs) tauchen in den Leaderboards nicht auf, z.B. [owner, sradmin]
+  excluded-ranks: []
+  row-format: "%color%#%pos%<reset> <white>%name% <dark_gray>» <yellow>%value%"
+  empty-row: "<dark_gray>#%pos% ---"
+  pos-colors: ["<gold><bold>", "<#d0d0d0><bold>", "<#cd7f32><bold>"]
+  default-pos-color: "<gray>"
+  separator: "<dark_gray><strikethrough>                              "
+  footer: "<dark_gray>Aktualisiert alle %seconds%s"
+  titles:
+    money: "<gold><bold>✦ TOP GELD ✦"
+    crystals: "<light_purple><bold>✦ TOP STARS ✦"
+    gems: "<aqua><bold>✦ TOP GEMS ✦"
+    kills: "<red><bold>✦ TOP KILLS ✦"
+    deaths: "<dark_gray><bold>✦ TOP TODE ✦"
+    kd: "<green><bold>✦ TOP K/D ✦"
+    playtime: "<yellow><bold>✦ TOP SPIELZEIT ✦"

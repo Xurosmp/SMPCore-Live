@@ -1,0 +1,82 @@
+# Spezial-Tools, die NxN Blöcke abbauen (nur ungerade Größen: 3, 5, 7, 9).
+# Sneaken = nur 1 Block. Geben: /tool give <Spieler> <id> [Anzahl]
+# model = Custom-Model-Data für das Resource-Pack (resourcepack/XuroSMP-Pack.zip), 0 = Standard-Optik
+# material: Pickaxe/Shovel/Axe/Hoe bestimmt, welche Blöcke abgebaut werden.
+tools:
+  hammer:
+    material: NETHERITE_PICKAXE
+    name: "<red><bold>Hammer"
+    lore: ["<gray>Baut 3x3 Blöcke ab", "<dark_gray>Sneaken = nur 1 Block"]
+    size: 3
+    model: 9
+    enchants: {EFFICIENCY: 5, UNBREAKING: 3, MENDING: 1}
+  excavator:
+    material: NETHERITE_SHOVEL
+    name: "<yellow><bold>Excavator"
+    lore: ["<gray>Gräbt 3x3 Blöcke", "<dark_gray>Sneaken = nur 1 Block"]
+    size: 3
+    model: 10
+    enchants: {EFFICIENCY: 5, UNBREAKING: 3, MENDING: 1}
+  megahammer:
+    material: NETHERITE_PICKAXE
+    name: "<dark_red><bold>Mega-Hammer"
+    lore: ["<gray>Baut 5x5 Blöcke ab", "<dark_gray>Sneaken = nur 1 Block"]
+    size: 5
+    model: 9
+    enchants: {EFFICIENCY: 6, UNBREAKING: 5, MENDING: 1}
+  lumberaxe:
+    material: NETHERITE_AXE
+    name: "<gold><bold>Holzfäller-Axt"
+    lore: ["<gray>Baut 3x3 Blöcke ab"]
+    size: 3
+    enchants: {EFFICIENCY: 5, UNBREAKING: 3, MENDING: 1}
+  # --- Crystal-Ausrüstung (Stars Shop, size 1 = normales Item mit Namen und Verzauberungen) ---
+  crystal_helmet:
+    material: NETHERITE_HELMET
+    name: "<light_purple><bold>Crystal Helm"
+    lore: ["<gray>Crystal-Ausrüstung"]
+    size: 1
+    model: 4
+    enchants: {PROTECTION: 4, UNBREAKING: 3, MENDING: 1, RESPIRATION: 3, AQUA_AFFINITY: 1}
+  crystal_chestplate:
+    material: NETHERITE_CHESTPLATE
+    name: "<light_purple><bold>Crystal Brustplatte"
+    lore: ["<gray>Crystal-Ausrüstung"]
+    size: 1
+    model: 5
+    enchants: {PROTECTION: 4, UNBREAKING: 3, MENDING: 1}
+  crystal_leggings:
+    material: NETHERITE_LEGGINGS
+    name: "<light_purple><bold>Crystal Hose"
+    lore: ["<gray>Crystal-Ausrüstung"]
+    size: 1
+    model: 6
+    enchants: {PROTECTION: 4, UNBREAKING: 3, MENDING: 1}
+  crystal_boots:
+    material: NETHERITE_BOOTS
+    name: "<light_purple><bold>Crystal Stiefel"
+    lore: ["<gray>Crystal-Ausrüstung"]
+    size: 1
+    model: 7
+    enchants: {PROTECTION: 4, UNBREAKING: 3, MENDING: 1, FEATHER_FALLING: 4, DEPTH_STRIDER: 3}
+  crystal_sword:
+    material: NETHERITE_SWORD
+    name: "<light_purple><bold>Crystal Schwert"
+    lore: ["<gray>Crystal-Ausrüstung"]
+    size: 1
+    model: 3
+    enchants: {SHARPNESS: 5, LOOTING: 3, UNBREAKING: 3, MENDING: 1, SWEEPING_EDGE: 3}
+  crystal_axe:
+    material: NETHERITE_AXE
+    name: "<light_purple><bold>Crystal Axt"
+    lore: ["<gray>Crystal-Ausrüstung"]
+    size: 1
+    model: 2
+    enchants: {SHARPNESS: 5, EFFICIENCY: 5, UNBREAKING: 3, MENDING: 1}
+  crystal_pickaxe:
+    material: NETHERITE_PICKAXE
+    name: "<light_purple><bold>Crystal Spitzhacke"
+    lore: ["<gray>Crystal-Ausrüstung"]
+    size: 1
+    model: 1
+    enchants: {EFFICIENCY: 5, FORTUNE: 3, UNBREAKING: 3, MENDING: 1}

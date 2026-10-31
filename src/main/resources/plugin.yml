@@ -1,0 +1,211 @@
+name: SMPCore
+version: '${project.version}'
+main: de.smpcore.SMPCore
+api-version: '1.21'
+description: All-in-one SMP Core (Economy, Shop, AH, Bounty, Stars, Crates, Admin Panel)
+softdepend: [floodgate, Geyser-Spigot]
+
+commands:
+  balance:
+    description: Zeigt dein Geld
+    aliases: [bal, money]
+  pay:
+    description: Geld an Spieler senden
+  eco:
+    description: Economy Admin
+    permission: smpcore.admin
+  crystals:
+    description: Stars anzeigen/verwalten
+    aliases: [stars, kristalle, shards]
+  top:
+    description: Bestenlisten
+    aliases: [baltop, leaderboard]
+  shop:
+    description: Öffnet den Shop
+  sell:
+    description: Items verkaufen (hand/all)
+  crystalshop:
+    description: Stars-Shop
+    aliases: [cshop, shardshop]
+  ah:
+    description: Auktionshaus
+    aliases: [auctionhouse, auction]
+  bounty:
+    description: Kopfgelder
+    aliases: [bounties]
+  crate:
+    description: Crates & Keys
+    aliases: [crates]
+  adminpanel:
+    description: Admin Panel
+    aliases: [ap]
+    permission: smpcore.admin
+  spawn:
+    description: Zum Spawn
+  setspawn:
+    description: Spawn setzen
+    permission: smpcore.admin
+  sethome:
+    description: Home setzen
+  home:
+    description: Zu einem Home
+  delhome:
+    description: Home löschen
+  homes:
+    description: Homes Menü
+  tpa:
+    description: Teleport-Anfrage
+  tpaccept:
+    description: Teleport-Anfrage annehmen
+  tpdeny:
+    description: Teleport-Anfrage ablehnen
+  rtp:
+    description: Zufälliger Teleport
+  daily:
+    description: Tägliche Belohnung
+  stats:
+    description: Statistiken
+  scoreboard:
+    description: Scoreboard an/aus
+    aliases: [sb]
+  smpcore:
+    description: Plugin Verwaltung
+  rank:
+    description: Ränge verwalten
+  gems:
+    description: Gems (Store-Währung) anzeigen/verwalten
+  gemshop:
+    description: Gem-Shop
+  afk:
+    description: AFK-Zone (Stars verdienen)
+  clan:
+    description: Clan-System
+  order:
+    description: Orders (Kaufaufträge)
+    aliases: [orders]
+  back:
+    description: Zum letzten Ort / Todesort
+  warp:
+    description: Warps (Menü oder /warp <Name>)
+    aliases: [warps]
+  setwarp:
+    description: Warp setzen (Admin)
+  delwarp:
+    description: Warp löschen (Admin)
+  kit:
+    description: Kits
+    aliases: [kits]
+  msg:
+    description: Private Nachricht
+    aliases: [w, tell, m, pm]
+  r:
+    description: Auf private Nachricht antworten
+    aliases: [reply]
+  heal:
+    description: Heilen
+  feed:
+    description: Sättigen
+  fly:
+    description: Fliegen an/aus
+  craft:
+    description: Werkbank öffnen
+    aliases: [wb]
+  ec:
+    description: Endertruhe öffnen
+    aliases: [enderchest]
+  trash:
+    description: Mülleimer
+    aliases: [bin]
+  vanish:
+    description: Unsichtbar (Staff)
+    aliases: [v]
+  sign:
+    description: Item in der Hand signieren (Tageslimit je nach Rang)
+  dimension:
+    description: Nether/End öffnen oder schließen (Admin)
+    aliases: [dim]
+    permission: smpcore.admin
+  spawner:
+    description: Smart-Spawner geben (Admin)
+    permission: smpcore.admin
+  tool:
+    description: Spezial-Tools geben (Admin)
+    permission: smpcore.admin
+  keyall:
+    description: Keyall-Timer anzeigen / steuern
+
+permissions:
+  smpcore.admin:
+    description: Voller Zugriff auf alles
+    default: op
+    children:
+      smpcore.cmd.*: true
+      smpcore.kit.*: true
+      smpcore.tp.bypass: true
+  smpcore.tp.bypass:
+    description: Teleport ohne Wartezeit
+    default: op
+  smpcore.cmd.*:
+    description: Alle Komfort-Befehle
+    default: op
+    children:
+      smpcore.cmd.heal: true
+      smpcore.cmd.feed: true
+      smpcore.cmd.fly: true
+      smpcore.cmd.craft: true
+      smpcore.cmd.ec: true
+      smpcore.cmd.trash: true
+      smpcore.cmd.vanish: true
+      smpcore.cmd.others: true
+  smpcore.cmd.heal:
+    description: /heal
+    default: op
+  smpcore.cmd.feed:
+    description: /feed
+    default: op
+  smpcore.cmd.fly:
+    description: /fly
+    default: op
+  smpcore.cmd.craft:
+    description: /craft (Werkbank)
+    default: op
+  smpcore.cmd.ec:
+    description: /ec (Endertruhe)
+    default: op
+  smpcore.cmd.trash:
+    description: /trash (Mülleimer)
+    default: op
+  smpcore.cmd.vanish:
+    description: /vanish (Staff)
+    default: op
+  smpcore.cmd.others:
+    description: /heal und /feed für andere Spieler
+    default: op
+  smpcore.kit.*:
+    description: Alle Kits
+    default: op
+    children:
+      smpcore.kit.starter: true
+      smpcore.kit.premium: true
+      smpcore.kit.elite: true
+      smpcore.kit.mvp: true
+      smpcore.kit.ultra: true
+      smpcore.kit.vip: true
+  smpcore.kit.starter:
+    description: Starter-Kit
+    default: op
+  smpcore.kit.premium:
+    description: PREMIUM-Kit
+    default: op
+  smpcore.kit.elite:
+    description: ELITE-Kit
+    default: op
+  smpcore.kit.mvp:
+    description: MVP-Kit
+    default: op
+  smpcore.kit.ultra:
+    description: ULTRA-Kit
+    default: op
+  smpcore.kit.vip:
+    description: VIP-Kit
+    default: op

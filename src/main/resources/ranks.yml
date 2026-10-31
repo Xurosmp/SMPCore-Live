@@ -1,0 +1,122 @@
+# Ränge im Stil der Tab-Liste: fetter Rang-Name + Spielername in passender Farbe.
+# Reihenfolge (oben = wichtigster): OWNER, SRADMIN, ADMIN, SRMOD, MOD, MEDIA, VIP, ULTRA, MVP, ELITE, PREMIUM, SPIELER
+# prefix = Chat-, Tab- und Nametag-Prefix (MiniMessage). Die Farbe am Ende färbt den Spielernamen.
+# weight = Sortierung in der Tab-Liste (höher = weiter oben)
+# homes / listings = Limits für Homes bzw. AH-Angebote (0 = vom vererbten Rang bzw. config.yml)
+# afk-bonus = Prozent-Bonus auf AFK-Stars
+# sign-limit = /sign-Nutzungen pro Tag
+# permissions = Permission-Nodes dieses Ranges. Ränge erben alles vom "inherits"-Rang.
+#   Dieses Plugin: smpcore.cmd.<heal|feed|fly|craft|ec|trash|vanish|others>, smpcore.kit.<rang>, smpcore.tp.bypass, smpcore.admin
+#   (smpcore.admin = alles). Für andere Plugins einfach deren Nodes eintragen, z.B. worldedit.* oder essentials.fly.
+#   Ein "-" davor entzieht eine Permission.
+# (alt:) permissions = Permission-Nodes ("-node" entzieht eine Permission), inherits = erbt von anderen Rängen
+# Zuweisen: /rank set <Spieler> <Rang>  oder  Admin Panel (/ap -> Spieler -> Rang)
+# Tipp: Für ein Label beim Standard-Rang: prefix: "<dark_gray><bold>SPIELER</bold> <gray>"
+default-rank: spieler
+ranks:
+  spieler:
+    display: "<gray>Spieler"
+    prefix: "<gray>"
+    weight: 0
+    homes: 3
+    listings: 10
+    sign-limit: 1
+    permissions: [smpcore.kit.starter]
+  premium:
+    display: "<green>PREMIUM"
+    prefix: "<green><bold>PREMIUM</bold> <green>"
+    weight: 10
+    inherits: [spieler]
+    homes: 5
+    listings: 15
+    afk-bonus: 10
+    sign-limit: 2
+    permissions: [smpcore.cmd.trash, smpcore.kit.premium]
+  elite:
+    display: "<gold>ELITE"
+    prefix: "<gold><bold>ELITE</bold> <gold>"
+    weight: 20
+    inherits: [premium]
+    homes: 7
+    listings: 20
+    afk-bonus: 20
+    sign-limit: 3
+    permissions: [smpcore.cmd.craft, smpcore.kit.elite]
+  mvp:
+    display: "<#ff5555>MVP"
+    prefix: "<#ff5555><bold>MVP</bold> <#ff5555>"
+    weight: 30
+    inherits: [elite]
+    homes: 10
+    listings: 25
+    afk-bonus: 30
+    sign-limit: 5
+    permissions: [smpcore.cmd.ec, smpcore.kit.mvp]
+  ultra:
+    display: "<#c040ff>ULTRA"
+    prefix: "<#c040ff><bold>ULTRA</bold> <#e070ff>"
+    weight: 40
+    inherits: [mvp]
+    homes: 15
+    listings: 30
+    afk-bonus: 40
+    sign-limit: 8
+    permissions: [smpcore.cmd.feed, smpcore.kit.ultra]
+  vip:
+    display: "<#55ccff>VIP"
+    prefix: "<#55ccff><bold>VIP</bold> <#55ccff>"
+    weight: 50
+    inherits: [ultra]
+    homes: 20
+    listings: 40
+    afk-bonus: 50
+    sign-limit: 12
+    permissions: [smpcore.cmd.fly, smpcore.cmd.heal, smpcore.kit.vip]
+  media:
+    display: "<#ff3fa4>MEDIA"
+    prefix: "<#ff3fa4><bold>MEDIA</bold> <#ff3fa4>"
+    weight: 60
+    inherits: [vip]
+    homes: 20
+    listings: 40
+    afk-bonus: 50
+    sign-limit: 12
+    permissions: []
+  mod:
+    display: "<aqua>MOD"
+    prefix: "<aqua><bold>MOD</bold> <aqua>"
+    weight: 70
+    inherits: [media]
+    homes: 25
+    listings: 50
+    sign-limit: 20
+    permissions: [smpcore.tp.bypass, smpcore.cmd.vanish, smpcore.cmd.heal, smpcore.cmd.feed, smpcore.cmd.fly]
+  srmod:
+    display: "<dark_aqua>SRMOD"
+    prefix: "<dark_aqua><bold>SRMOD</bold> <dark_aqua>"
+    weight: 80
+    inherits: [mod]
+    homes: 30
+    sign-limit: 30
+    permissions: [smpcore.cmd.others, smpcore.cmd.craft, smpcore.cmd.ec]
+  admin:
+    display: "<#ff7a2a>ADMIN"
+    prefix: "<#ff7a2a><bold>ADMIN</bold> <#ff7a2a>"
+    weight: 90
+    inherits: [srmod]
+    homes: 50
+    listings: 100
+    sign-limit: 100
+    permissions: [smpcore.admin]
+  sradmin:
+    display: "<#ff3b3b>SRADMIN"
+    prefix: "<#ff3b3b><bold>SRADMIN</bold> <#ff3b3b>"
+    weight: 95
+    inherits: [admin]
+    permissions: []
+  owner:
+    display: "<dark_red>OWNER"
+    prefix: "<dark_red><bold>OWNER</bold> <dark_red>"
+    weight: 100
+    inherits: [sradmin]
+    permissions: []

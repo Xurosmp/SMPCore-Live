@@ -1,0 +1,41 @@
+name: SMPCoreLive
+version: '${project.version}'
+main: de.smpcore.live.SMPCoreLive
+api-version: '1.21'
+description: Addon für SMPCore - /live (Stream-Punkt), Combat-Log und Hologramm-Leaderboards
+depend: [SMPCore]
+softdepend: [floodgate, Geyser-Spigot]
+
+commands:
+  live:
+    description: Streamer-Modus - Stream-Link teilen, roter Punkt hinter dem Namen
+    aliases: [stream]
+    usage: /live <Link> | off | list
+  hololb:
+    description: Hologramm-Leaderboards verwalten
+    aliases: [holoboard, hlb]
+    permission: smpcorelive.holo.admin
+    usage: /hololb help
+  smpcorelive:
+    description: Verwaltung von SMPCoreLive
+    aliases: [scl]
+    permission: smpcorelive.admin
+    usage: /smpcorelive help
+
+permissions:
+  smpcorelive.admin:
+    description: Voller Zugriff auf SMPCoreLive
+    default: op
+    children:
+      smpcorelive.live: true
+      smpcorelive.holo.admin: true
+      smpcorelive.combat.bypass: true
+  smpcorelive.live:
+    description: /live nutzen (zusätzlich zu den Rängen aus der config.yml)
+    default: op
+  smpcorelive.holo.admin:
+    description: Hologramm-Leaderboards erstellen und löschen
+    default: op
+  smpcorelive.combat.bypass:
+    description: Wird nie in den Kampf-Modus versetzt (z.B. für Staff)
+    default: false
